@@ -1,0 +1,12 @@
+.header{
+    background: #424242a8;
+    color: white;
+    padding-left: 32px;
+    /* padding-right: 34px; */
+    display: flex;
+    height: 56px;
+    /* align-content: center; */
+    margin-left: -15px;
+    margin-right: -15px;
+    align-items: center;
+  }
