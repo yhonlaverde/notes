@@ -1,13 +1,19 @@
-import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { Routes } from '@angular/router';
-import { NotesComponent } from './components/notes/notes.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
 
-const ROUTES: Routes = [];
 
 @NgModule({
-  declarations: [NotesComponent],
-  imports: [],
+  declarations: [],
+  imports: [
+    CommonModule,
+    BrowserModule,
+    BrowserAnimationsModule, 
+    RouterModule.forChild([{ path: '', component: HomeComponent }]),
+  ],
   providers: [],
   exports: [],
   bootstrap: [],

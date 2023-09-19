@@ -10,5 +10,5 @@ import { HomeComponent } from './components/home/home.component';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'my-nx-angular-tailwind';
+  title = 'Notes';
 }

@@ -2,8 +2,13 @@
     height: 70px;
     display: flex;
     flex-flow: row;
-    background: #424242ba;
-    color: white;
+    margin-bottom: 12px;
+    background: #90959978;
+    color: black; 
+    & .title {
+        font-size: medium;
+
+    }
 }
 
 .example-spacer {
@@ -11,8 +16,18 @@
   }
 
   .example-card {
-    max-width: 400px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     display: grid;
     justify-items: center;
+    background: #a0c8ec61;
+  }
+
+  button{
+    background: #585858;
+    font-size: 16px;
+    color: white;
+    & .button-label{
+        font-size: 14px;
+        font-family: "Helvetica, Arial, sans-serif";
+    }
   }
