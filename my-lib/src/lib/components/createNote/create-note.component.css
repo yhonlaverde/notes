@@ -40,3 +40,11 @@
   mat-form-field{
     width: 100%;
   }
+
+  .caracter {
+    font-size: 13px;
+    font-style: oblique;
+    justify-content: left;
+    color: #79879acf;
+    text-align: left;
+  }
