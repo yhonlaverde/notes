@@ -12,31 +12,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { HomeComponent } from './components/home/home.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { NoteComponent } from './components/note/note.component';
 
-// const ROUTES: Routes = [
-//   { path: '', component: HomeComponent },
-//   {path: 'note', component: NoteComponent},
-//   // {
-//   //   path: '',
-//   //   pathMatch: 'full',
-//   //   redirectTo: ''
-//   // },
-//   // {
-//   //   children: [
-//   //     {
-//   //       path: 'note',
-//   //       loadChildren: () =>
-//   //         import('my-lib/src/lib/my-lib.module').then((m) => m.MyLibModule),
-//   //     },
-//   //   ],
-//   // },
-// ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NoteComponent],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -48,9 +29,9 @@ import { NoteComponent } from './components/note/note.component';
     MatGridListModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    FormsModule,
     MatInputModule,
-      AppRoutingModule,
-    // RouterModule.forRoot(ROUTES),
+    AppRoutingModule,
     HttpClientModule,
   ],
   providers: [],
