@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,8 +7,19 @@ import { Component } from '@angular/core';
  styleUrls: ['./home.component.scss'],
  
 })
-export class HomeComponent {
-  longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
-  from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-  originally bred for hunting.`;
+export class HomeComponent implements OnInit {
+  longText: any;
+
+  
+
+  constructor(private router: Router){
+    
+  }
+  ngOnInit(): void {
+    this.longText = localStorage.getItem('listNotes')
+    console.log(this.longText)
+  }
+  newNote():void{
+    this.router.navigate(['/note']);
+  }
 }
