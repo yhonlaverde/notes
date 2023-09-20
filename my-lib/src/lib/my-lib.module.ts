@@ -3,15 +3,16 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MyLibComponent } from './my-lib.component';
 import { MyLibRoutingModule } from './my-lib.routing.module';
-import { CreateNoteComponent } from './components/createNote/create-note.component';
+import { CreateNoteModule } from './components/createNote/create-note.module';
 
 
 @NgModule({
-  declarations:[MyLibComponent, CreateNoteComponent],
+  declarations:[MyLibComponent],
   imports: [
   CommonModule,
   ReactiveFormsModule,
   MyLibRoutingModule,
+  CreateNoteModule
   ],
 })
 export class MyLibModule {}
