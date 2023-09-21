@@ -2,7 +2,7 @@
   <mat-toolbar-row>
     <span class="title">Aplicacion de Notas</span>
     <span class="example-spacer"></span>
-    <button *ngIf="longText" mat-fab extended color="basic">
+    <button *ngIf="listNote" mat-fab extended color="basic">
       <span class="button-label" (click)="newNote()">Nueva Nota</span>
     </button>
   </mat-toolbar-row>
@@ -10,7 +10,7 @@
 
 
 
-  <mat-card *ngIf="!listaRecuperada" >
+  <mat-card *ngIf="!listRecoverNote" >
     <mat-card-content
       ><button mat-fab extended color="basic">
         <span class="button-label" (click)="newNote()">Nueva Nota</span>
@@ -18,9 +18,9 @@
     >
   </mat-card>
 
-<div class="row" *ngIf="listaRecuperada" >
+<div class="row" *ngIf="listRecoverNote" >
   
-  <div class="col-sm-3 col-md-3" *ngFor="let item of listaRecuperada">
+  <div class="col-sm-3 col-md-3" *ngFor="let item of listRecoverNote">
     <mat-card class="example-card" >
       <mat-card-content>
         <p>{{ item.notes }}</p>

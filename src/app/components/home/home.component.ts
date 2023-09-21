@@ -7,32 +7,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  longText: any;
-  listaRecuperada:any
+  listNote:any;
+  listRecoverNote:any
   constructor(private router: Router) {}
   ngOnInit(): void {
-    this.longText = localStorage.getItem('listNote');
-
-    // Si hay datos almacenados bajo esa clave, conviértelos de nuevo a un array
-    if (this.longText) {
-      this.listaRecuperada = JSON.parse(this.longText);
-      console.log('Lista recuperada:', this.listaRecuperada);
-    } else {
-      console.log(
-        'No se encontraron datos almacenados bajo la clave "listNote".'
-      );
-    }
-    console.log(this.longText);
+    this.listNote = localStorage.getItem('listNote');
   }
   newNote(): void {
     this.router.navigate(['/note']);
   }
 
   deleteNote(id: number): void {
-    this.listaRecuperada.splice(id,1);
-    this.listaRecuperada = this.listaRecuperada.filter((objeto: { id: number; }) => objeto.id !== id);
-    console.log(this.listaRecuperada)
-    localStorage.setItem('listNote', JSON.stringify(this.listaRecuperada));
+    this.listRecoverNote.splice(id,1);
+    this.listRecoverNote = this.listRecoverNote.filter((objeto: { id: number; }) => objeto.id !== id);
+    localStorage.setItem('listNote', JSON.stringify(this.listRecoverNote));
     window.location.reload()
   }
 }
