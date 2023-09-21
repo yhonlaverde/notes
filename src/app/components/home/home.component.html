@@ -10,7 +10,7 @@
 
 
 
-  <mat-card *ngIf="!longText" >
+  <mat-card *ngIf="!listaRecuperada" >
     <mat-card-content
       ><button mat-fab extended color="basic">
         <span class="button-label" (click)="newNote()">Nueva Nota</span>
@@ -18,15 +18,15 @@
     >
   </mat-card>
 
-<div class="row">
+<div class="row" *ngIf="listaRecuperada" >
   
-  <div class="col-sm-3 col-md-3" *ngIf="longText">
-    <mat-card class="example-card">
+  <div class="col-sm-3 col-md-3" *ngFor="let item of listaRecuperada">
+    <mat-card class="example-card" >
       <mat-card-content>
-        <p>{{ longText }}</p>
+        <p>{{ item.notes }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-fab extended color="basic">
+        <button mat-fab extended color="basic" (click)="deleteNote(item.id)">
           <span class="button-label">Eliminar</span>
         </button>
       </mat-card-actions>

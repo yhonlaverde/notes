@@ -1,21 +1,39 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+
+export interface Data {
+  id: number;
+  notes: string;
+  // Otras propiedades aquí
+}
 @Component({
   selector: 'lib-create-note',
   templateUrl: './create-note.component.html',
   styleUrls: ['./create-note.component.css'],
 })
+
 export class CreateNoteComponent {
-  note!: string;
-
-  constructor(private router: Router) {}
+  note :any;
+  listNoteSave: any
+  noteContent: [] = []
+  private data: Data[] = [];
+  constructor(private router: Router) {
+    const savedData = localStorage.getItem('listNote');
+    if (savedData) {
+      this.data = JSON.parse(savedData);
+    }
+  }
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  saveNote(): void {
-    const listNote = [];
-    const idNote = Math.random() * 100;
-    listNote.push({ id: idNote.toFixed(), note: this.note });
+  saveNote() {
+    const ids = Math.floor((Math.random() * 100) + 1);
+    const nuevoDato: Data = { id: ids, notes: this.note }; // Puedes crear datos personalizados aquí
+   
+    this.data.push(nuevoDato);
+    localStorage.setItem('listNote', JSON.stringify(this.data));
+    console.log(this.data)
+    alert('Añadistes Correctamente la nota')
 
-    localStorage.setItem('listNotes', JSON.stringify(listNote));
+    this.returnHome()
   }
 
   returnHome(): void {
