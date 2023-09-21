@@ -30,5 +30,9 @@ export class HomeComponent implements OnInit {
 
   deleteNote(id: number): void {
     this.listaRecuperada.splice(id,1);
+    this.listaRecuperada = this.listaRecuperada.filter((objeto: { id: number; }) => objeto.id !== id);
+    console.log(this.listaRecuperada)
+    localStorage.setItem('listNote', JSON.stringify(this.listaRecuperada));
+    window.location.reload()
   }
 }
