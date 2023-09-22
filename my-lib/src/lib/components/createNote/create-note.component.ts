@@ -13,7 +13,7 @@ export interface Notes {
 })
 
 export class CreateNoteComponent {
-  note :any;
+  note  = '';
   listNoteSave: any
   noteContent: [] = []
   private notes: Notes[] = [];
@@ -24,13 +24,16 @@ export class CreateNoteComponent {
     }
   }
   saveNote() {
-    const ids = Math.floor((Math.random() * 100) + 1);
-    const newData: Notes = { id: ids, notes: this.note };
+    
+      const ids = Math.floor((Math.random() * 100) + 1);
+      const newData: Notes = { id: ids, notes: this.note };
+     
+      this.notes.push(newData);
+      localStorage.setItem('listNote', JSON.stringify(this.notes));
+      alert('Añadistes Correctamente la nota')
+      this.returnHome()
+    
    
-    this.notes.push(newData);
-    localStorage.setItem('listNote', JSON.stringify(this.notes));
-    alert('Añadistes Correctamente la nota')
-    this.returnHome()
   }
 
   returnHome(): void {

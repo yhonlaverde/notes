@@ -8,20 +8,15 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
+<mat-card *ngIf="!listRecoverNote" style="text-align: center">
+  <mat-card-content>
+    <a class="btn btn button-new" (click)="newNote()">Crear Nueva Nota</a>
+  </mat-card-content>
+</mat-card>
 
-
-  <mat-card *ngIf="!listRecoverNote" >
-    <mat-card-content
-      ><button mat-fab extended color="basic">
-        <span class="button-label" (click)="newNote()">Nueva Nota</span>
-      </button></mat-card-content
-    >
-  </mat-card>
-
-<div class="row" *ngIf="listRecoverNote" >
-  
+<div class="row" *ngIf="listRecoverNote">
   <div class="col-sm-3 col-md-3" *ngFor="let item of listRecoverNote">
-    <mat-card class="example-card" >
+    <mat-card class="example-card">
       <mat-card-content>
         <p>{{ item.notes }}</p>
       </mat-card-content>

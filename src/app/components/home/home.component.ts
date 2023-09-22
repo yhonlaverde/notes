@@ -12,14 +12,23 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router) {}
   ngOnInit(): void {
     this.listNote = localStorage.getItem('listNote');
+    console.log(this.listRecoverNote)
+    if (this.listNote) {
+      this.listRecoverNote = JSON.parse(this.listNote);
+      
+    } else{
+      console.log(
+        'No se encontraron datos almacenados bajo la clave "listNote".'
+      );
+      localStorage.removeItem("listNote");
+    }
   }
   newNote(): void {
     this.router.navigate(['/note']);
   }
 
   deleteNote(id: number): void {
-    this.listRecoverNote.splice(id,1);
-    this.listRecoverNote = this.listRecoverNote.filter((objeto: { id: number; }) => objeto.id !== id);
+    this.listRecoverNote = this.listRecoverNote.filter((myNote: { id: number; }) => myNote.id !== id);
     localStorage.setItem('listNote', JSON.stringify(this.listRecoverNote));
     window.location.reload()
   }

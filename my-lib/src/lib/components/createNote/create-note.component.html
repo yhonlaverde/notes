@@ -31,7 +31,7 @@
             </div>
             <div class="card-footer">
                 <div class="example-button-row">
-                    <button mat-raised-button color="primary" (click)="saveNote()" [disabled]="!note"> <span class="button-label">Añadir</span></button>
+                    <button mat-raised-button color="primary" (click)="saveNote()" [disabled]="note.length < 6"> <span class="button-label">Añadir</span></button>
                 </div>
             </div>
         </div>
