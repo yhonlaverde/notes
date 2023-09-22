@@ -1,30 +1,80 @@
-<mat-toolbar class="header">
-  <mat-toolbar-row>
-    <span class="title">Aplicacion de Notas</span>
-    <span class="example-spacer"></span>
-    <button *ngIf="listNote" mat-fab extended color="basic">
-      <span class="button-label" (click)="newNote()">Nueva Nota</span>
-    </button>
-  </mat-toolbar-row>
-</mat-toolbar>
-
-<mat-card *ngIf="!listRecoverNote" style="text-align: center">
-  <mat-card-content>
-    <a class="btn btn button-new" (click)="newNote()">Crear Nueva Nota</a>
-  </mat-card-content>
-</mat-card>
-
-<div class="row" *ngIf="listRecoverNote">
-  <div class="col-sm-3 col-md-3" *ngFor="let item of listRecoverNote">
-    <mat-card class="example-card">
-      <mat-card-content>
-        <p>{{ item.notes }}</p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-fab extended color="basic" (click)="deleteNote(item.id)">
-          <span class="button-label">Eliminar</span>
-        </button>
-      </mat-card-actions>
-    </mat-card>
+<nav class="bg-gray-800">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div
+        class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
+      >
+        <div class="hidden sm:ml-6 sm:block">
+          <div class="flex space-x-4">
+            <a
+              href="#"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+              >Aplicacion de Notas</a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+      >
+        <div class="relative ml-3">
+          <div *ngIf="listNote">
+            <button  type="button" (click)="newNote()" class="text-white bg-blue-700 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2">
+              Nueva Nota
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+  <div class="sm:hidden" id="mobile-menu">
+    <div class="space-y-1 px-2 pb-3 pt-2">
+      <a
+        href="#"
+        class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+        >Aplicacion de Notas</a
+      >
+    </div>
+  </div>
+</nav>
+
+<header
+  class="bg-white shadow"
+  *ngIf="!listRecoverNote"
+  style="text-align: center"
+>
+  <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold tracking-tight text-gray-900">
+      <button type="button" (click)="newNote()" 
+      class="text-white bg-blue-700 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2">
+        Crear Nueva Nota
+      </button>
+    </h1>
+    
+  </div>
+</header>
+
+<main *ngIf="listRecoverNote">
+  <div class="bg-gray-100">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
+        <h2 class="text-2xl font-bold text-gray-900">Lista de Notas</h2>
+  
+        <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0" >
+          <div class="group relative" *ngFor="let item of listRecoverNote">
+            <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+              <p>{{ item.notes }}</p>  
+              <div class="mt-6 flex items-baseline justify-center gap-x-2">
+                <button type="button" (click)="deleteNote(item.id)"  class="text-white bg-blue-700 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                  Eliminar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+

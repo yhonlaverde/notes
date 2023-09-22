@@ -1,47 +1,4 @@
-.header{
-    height: 70px;
-    display: flex;
-    flex-flow: row;
-    margin-bottom: 12px;
-    background: #90959978;
-    color: black; 
-    & .title {
-        font-size: medium;
-
-    }
-}
-
-.example-spacer {
-    flex: 1 1 auto;
-  }
-
-  .example-card {
-    margin-bottom: 12px;
-    display: grid;
-    justify-items: center;
-    background: #a0c8ec61;
-  }
-
-  button{
-    background: #585858;
-    font-size: 16px;
-    color: white;
-    & .button-label{
-        font-size: 14px;
-        font-family: "Helvetica, Arial, sans-serif";
-    }
-  }
-
-  .example-button-row {
-    display: table-cell;
-    max-width: 600px;
-  }
-
-  mat-form-field{
-    width: 100%;
-  }
-
-  .caracter {
+.caracter {
     font-size: 13px;
     font-style: oblique;
     justify-content: left;

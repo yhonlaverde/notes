@@ -7,20 +7,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  listNote:any;
-  listRecoverNote:any
+  listNote: any;
+  listRecoverNote: any;
   constructor(private router: Router) {}
   ngOnInit(): void {
     this.listNote = localStorage.getItem('listNote');
-    console.log(this.listRecoverNote)
+    console.log(this.listRecoverNote);
     if (this.listNote) {
       this.listRecoverNote = JSON.parse(this.listNote);
-      
-    } else{
+    } else {
       console.log(
         'No se encontraron datos almacenados bajo la clave "listNote".'
       );
-      localStorage.removeItem("listNote");
+      localStorage.removeItem('listNote');
     }
   }
   newNote(): void {
@@ -28,8 +27,10 @@ export class HomeComponent implements OnInit {
   }
 
   deleteNote(id: number): void {
-    this.listRecoverNote = this.listRecoverNote.filter((myNote: { id: number; }) => myNote.id !== id);
+    this.listRecoverNote = this.listRecoverNote.filter(
+      (myNote: { id: number }) => myNote.id !== id
+    );
     localStorage.setItem('listNote', JSON.stringify(this.listRecoverNote));
-    window.location.reload()
+    window.location.reload();
   }
 }
